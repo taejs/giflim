@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import Store from '../lib/Store';
+import {Link} from 'react-router-dom';
+import { Button } from "@material-ui/core";
 
 class ResultPage extends Component {
     constructor() {
         super();
         this.state = {
             resultImgSrc : ''
-        }; 
+        };
     }
     componentDidMount() {
         var seletedGif = Store.getState('selectedGif');
-        debugger;
         window.gifshot.createGIF({
             gifWidth: 200,
             gifHeight: 200,
@@ -39,6 +40,11 @@ class ResultPage extends Component {
         const src = this.state.resultImgSrc;
         return (<div>
                 <img src={src}></img>
+                <Link to="/">
+        <Button variant="contained" color="primary">
+          Back
+        </Button>
+        </Link>
             </div>)
     }
 

@@ -3,6 +3,9 @@ import Store from '../lib/Store'
 import GifCard from '../components/GifCard'
 
 import { Button, TextField, Grid, Paper } from "@material-ui/core";
+import Store from "../lib/Store";
+import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 class Timeline extends Component {
   constructor() {
@@ -26,8 +29,13 @@ class Timeline extends Component {
           </Grid>
         ))}
         </Grid>
-      </div>
-    )
+        <Link to="/result">
+        <Button variant="contained" color="primary">
+          Submit
+        </Button>
+        </Link>
+        </div>
+    );
   }
 }
 export default Timeline;
