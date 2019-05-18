@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { bindCallback } from "rxjs";
 import { statement } from "@babel/template";
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField, Grid, Paper } from "@material-ui/core";
 import "../styles/SearchGif.css";
+import GifCard from "./GifCard";
 
 class SearchGif extends Component {
   constructor() {
@@ -66,9 +67,22 @@ class SearchGif extends Component {
             Search
           </Button>
         </section>
-        {gifData.map(function(item) {
-          return <img src={item.url} />;
+        <Grid container spacing={24}>
+
+          {gifData.map(function(item) {
+          return (<Grid item xs={4}>
+          <Paper>
+            <GifCard
+              imgSrc={item.url}
+            />
+          </Paper>
+          </Grid>);
         })}
+        </Grid>
+
+        {/* {gifData.map(function(item) {
+          return <img src={item.url} />;
+        })} */}
       </div>
     );
   }

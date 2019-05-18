@@ -1,0 +1,8 @@
+.gif_card_action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gif_add_button {
+  cursor: pointer;
+}
