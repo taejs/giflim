@@ -1,0 +1,11 @@
+.serach {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_gif_search {
+  min-width: 300px;
+  width: 40%;
+  margin: 1rem;
+}
