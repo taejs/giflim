@@ -8,10 +8,10 @@ class Timeline extends Component {
   }
   render() {
     var seletedGif = Store.getState('selectedGif');
-    debugger;
+    // debugger;
     return (
       <div>
-        {seletedGif.map((item) => <img src={item.url}></img>)}
+        {/* {seletedGif.map((item) => <img src={item.url}></img>)} */}
       </div>
     )
   }

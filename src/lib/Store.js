@@ -1,7 +1,7 @@
 class Store {
 
     static getState(key) {
-        debugger;
+        // debugger;
         if(Store.keyList.indexOf(key) === -1) throw new Error('store에 등록된 key값만 사용해주세요.');
         return Store.datalist[key];
     }
