@@ -1,0 +1,18 @@
+body{
+    height:100vh;
+}
+div.search-gif {
+    margin : 0 auto;
+    width:90%;
+}
+
+div.MuiGrid-spacing-xs-24-113{
+    width: calc(100%);
+    overflow-y:scroll;
+    height:50vh;
+    overflow-x:visible;
+}
+
+div.timeline{
+    height:20vh;
+}

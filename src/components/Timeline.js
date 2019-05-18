@@ -11,7 +11,7 @@ class Timeline extends Component {
     // debugger;
     return (
       <div>
-        {/* {seletedGif.map((item) => <img src={item.url}></img>)} */}
+        {seletedGif.map((item) => <img src={item.url}></img>)}
       </div>
     )
   }
