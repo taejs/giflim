@@ -12,8 +12,19 @@ import Store from "../lib/Store";
 
 export default class componentName extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      'selectedGif' : []
+    }
+  }
+
+
   setStore(item) {
-    Store.setState('selectedGif', item);
+    const selectedGif = Store.getState('selectedGif');
+    let arr =selectedGif.slice();
+    arr.push(item);
+    Store.setState('selectedGif', arr);
   }
 
   render() {

@@ -1,11 +1,16 @@
+import React from 'react'
+import index from '../index'
+import Timeline from '../components/Timeline'
 class Store {
     static getState(key) {
+        debugger;
         if(Store.keyList.indexOf(key) === -1) throw new Error('store에 등록된 key값만 사용해주세요.');
-        return Store.datalist[key];
+        if(!localStorage[key]) localStorage.setItem(key, JSON.stringify([]));
+        return JSON.parse(localStorage[key]) || [];
     }
     static setState(key, value) {
         if(Store.keyList.indexOf(key) === -1) throw new Error('store에 등록된 key값만 사용해주세요.');
-        Store.datalist[key] = value;
+        localStorage.setItem(key, JSON.stringify(value));
     }
 }
 Store.keyList = ['selectedGif'];
