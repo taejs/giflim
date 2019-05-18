@@ -6,6 +6,7 @@ import { Button, TextField, Grid, Paper } from "@material-ui/core";
 import "../styles/SearchGif.css";
 import GifCard from "./GifCard";
 import NoGif from "./NoGif";
+import Store from "../lib/Store";
 
 class SearchGif extends Component {
   constructor() {
@@ -81,7 +82,10 @@ class SearchGif extends Component {
               return (
                 <Grid item xs={4} key={item.id}>
                   <Paper>
-                    <GifCard imgSrc={item.url} />
+                    <GifCard
+                      imgSrc={item.url}
+                      item={item}
+                      />
                   </Paper>
                 </Grid>
               );
