@@ -2,15 +2,18 @@ import React, { Component } from "react";
 import axios from "axios";
 import { bindCallback } from "rxjs";
 import { statement } from "@babel/template";
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField, Grid, Paper } from "@material-ui/core";
 import "../styles/SearchGif.css";
+import GifCard from "./GifCard";
+import NoGif from "./NoGif";
 
 class SearchGif extends Component {
   constructor() {
     super();
     this.state = {
       gifData: [],
-      searchText: ""
+      searchText: "",
+      isSearch: false
     };
   }
 
@@ -40,9 +43,14 @@ class SearchGif extends Component {
 
   setSearchText(event) {
     this.setState({
-      searchText: event.target.value
+      searchText: event.target.value,
+      isSearch: true
     });
     console.log(`searchText : ${this.state.searchText}`);
+  }
+
+  componentDidMount() {
+    this.search();
   }
 
   render() {
@@ -55,7 +63,6 @@ class SearchGif extends Component {
             label="search yout GIF!"
             margin="normal"
             onChange={this.setSearchText.bind(this)}
-            // onKeyDown={this.setSearchText(this)}
           />
           <Button
             variant="contained"
@@ -66,9 +73,21 @@ class SearchGif extends Component {
             Search
           </Button>
         </section>
-        {gifData.map(function(item) {
-          return <img src={item.url} />;
-        })}
+        {gifData.length === 0 ? (
+          this.state.isSearch && <NoGif />
+        ) : (
+          <Grid container spacing={24}>
+            {gifData.map(function(item) {
+              return (
+                <Grid item xs={4} key={item.id}>
+                  <Paper>
+                    <GifCard imgSrc={item.url} />
+                  </Paper>
+                </Grid>
+              );
+            })}
+          </Grid>
+        )}
       </div>
     );
   }

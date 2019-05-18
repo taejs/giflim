@@ -1,0 +1,10 @@
+.no_gif {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no_gif_message {
+  font-size: 2rem;
+  font-weight: bold;
+}
